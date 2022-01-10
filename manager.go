@@ -1,4 +1,4 @@
-package worldEdit
+package weLib
 
 import (
 	"sync"
