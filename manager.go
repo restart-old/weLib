@@ -18,7 +18,7 @@ func NewManager() *Manager {
 	}
 }
 
-func (m *Manager) player(p *player.Player) (*Player, bool) {
+func (m *Manager) Player(p *player.Player) (*Player, bool) {
 	m.playersMu.RLock()
 	for _, pl := range m.players {
 		if p == pl.p {
@@ -49,7 +49,7 @@ func (m *Manager) RemovePlayer(p *player.Player) {
 }
 
 func (m *Manager) SetPos1(p *player.Player, pos mgl64.Vec3) {
-	if pl, ok := m.player(p); ok {
+	if pl, ok := m.Player(p); ok {
 		pl.area.SetPos1(pos)
 	} else {
 		area := NewArea(pos, mgl64.Vec3{})
@@ -58,7 +58,7 @@ func (m *Manager) SetPos1(p *player.Player, pos mgl64.Vec3) {
 	}
 }
 func (m *Manager) SetPos2(p *player.Player, pos mgl64.Vec3) {
-	if pl, ok := m.player(p); ok {
+	if pl, ok := m.Player(p); ok {
 		pl.area.SetPos2(pos)
 	} else {
 		area := NewArea(mgl64.Vec3{}, pos)
