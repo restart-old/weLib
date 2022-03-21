@@ -27,9 +27,9 @@ func (a *Area) SetPos2(pos mgl64.Vec3) {
 }
 
 func (a *Area) AllVec3() (v []mgl64.Vec3) {
-	for x := a.Min().X(); x < a.Max().X()+1; x++ {
-		for y := a.Min().Y(); y < a.Max().Y()+1; y++ {
-			for z := a.Min().Z(); z < a.Max().Z()+1; z++ {
+	for x := a.Min().X(); x < a.Max().X(); x++ {
+		for y := a.Min().Y(); y < a.Max().Y(); y++ {
+			for z := a.Min().Z(); z < a.Max().Z(); z++ {
 				v = append(v, mgl64.Vec3{x, y, z})
 			}
 		}
